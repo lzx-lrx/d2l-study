@@ -1,0 +1,10 @@
+import torch
+a = torch.arange(12).reshape(3,4)
+print(f"a =\n{a}")
+print()
+print(f"a[1] = {a[1]}")
+print(f"a[1,2] = {a[1,2]}")
+idx = torch.tensor([0,2])
+print(f"idx     = {idx}")
+print("a[idx]  =")
+print(a[idx])
