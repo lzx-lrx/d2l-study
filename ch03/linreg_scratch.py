@@ -4,7 +4,8 @@
 import random
 import torch
 
-
+random.seed(0)          # TODO(你): 加这两行
+torch.manual_seed(0)
 # ============================================================
 # 3.2.1 生成合成数据集
 # ============================================================
@@ -100,9 +101,6 @@ for epoch in range(num_epochs):
         #   hint: 对照 gd_step.py 的第 0/1 步，只是这里包成了函数、还多了 batch 维度
 
     # 每个 epoch 结束，在「全量数据」上评估一次
-    with torch.no_grad():
-        train_l = loss(net(features, w, b), labels)
-        print(f'epoch {epoch + 1}, loss {float(train_l.mean()):f}')
 
 
 # ============================================================
