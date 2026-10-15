@@ -79,6 +79,7 @@ def show_images(imgs, num_rows, num_cols, titles=None, scale=1.6):
 
 # TODO(你) 1/2: 把 X 从 (18, 1, 28, 28) 变成 (18, 28, 28)，好画图
 #   hint: X.reshape(18, 28, 28)
+X.reshape(18,28,28)
 imgs = X.reshape(18, 28, 28)
 
 if imgs is not None:
@@ -95,6 +96,7 @@ if imgs is not None:
 # TODO(你) 2/2: 3.6 要用 nn.Linear(784, 10)，输入必须是 784 维。
 #               把 X 从 (18, 1, 28, 28) 变成 (18, 784)
 #   hint: X.reshape(X.shape[0], -1)     <- -1 让 PyTorch 自己算
+X.reshape(X.shape[0], -1)
 X_flat = X.reshape(X.shape[0], -1)
 print()
 print("X_flat.shape =", None if X_flat is None else tuple(X_flat.shape))
