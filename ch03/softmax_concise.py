@@ -83,6 +83,7 @@ for epoch in range(num_epochs):
     total_l, n, correct = 0.0, 0, 0.0
 
     for X, y in train_iter:
+        y_hat = net(X)
         l = loss(net(X), y)          # 前向 + 算损失
         trainer.zero_grad()          # 擦白板
         l.backward()                 # 反向
@@ -91,7 +92,7 @@ for epoch in range(num_epochs):
         with torch.no_grad():
             total_l += float(l) * len(y)
             n += len(y)
-            correct += float((net(X).argmax(1) == y).sum())
+            correct += float((y_hat.argmax(1) == y).sum())
 
     print("epoch %2d | train loss %.4f | train acc %.4f | test acc %.4f"
           % (epoch + 1, total_l / n, correct / n, evaluate_accuracy(net, test_iter)))
